@@ -191,7 +191,7 @@ Los resultados se muestran en dos categorías:
 Al hacer clic en una vulnerabilidad detectada, Snyk muestra:
 
 - **Nombre del issue** — ej. `SQL Injection`, `Use of Password Hash With Insufficient Computational Effort`
-- **CWE** — clasificación estándar de la vulnerabilidad (ej. CWE-89, CWE-916)
+- **CWE/CVE** — clasificación estándar de la vulnerabilidad (ej. CWE-89, CVE-2021-44228)
 - **Severidad** — Critical / High / Medium / Low
 - **Línea de código** — ubicación exacta del problema
 - **Data Flow** — trazabilidad del flujo de datos desde el origen hasta el punto vulnerable
