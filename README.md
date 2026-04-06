@@ -122,7 +122,6 @@ Antes de instalar el plugin necesitas:
 1. Abre VS Code o Cursor
 2. Haz clic en el ícono de **Extensiones** en la barra lateral izquierda (o presiona `Ctrl+Shift+X`)
 
-![Panel de extensiones VS Code](screenshots/vscode_01_extensions.png)
 
 ---
 
@@ -133,7 +132,6 @@ Antes de instalar el plugin necesitas:
 3. Haz clic en **Install**
 4. Espera a que finalice la instalación — no requiere reinicio
 
-![Instalación de Snyk en VS Code](screenshots/vscode_02_install.png)
 
 ---
 
@@ -147,7 +145,6 @@ Antes de instalar el plugin necesitas:
 6. Autoriza el acceso y regresa al IDE
 7. Verás el mensaje **"Authenticated successfully"**
 
-![Autenticación Snyk en VS Code](screenshots/vscode_03_auth.png)
 
 ---
 
@@ -159,7 +156,6 @@ Antes de instalar el plugin necesitas:
    - ✅ **Open Source Security issues** — vulnerabilidades en dependencias
 3. Guarda la configuración
 
-![Configuración Snyk en VS Code](screenshots/vscode_04_settings.png)
 
 ---
 
@@ -170,7 +166,6 @@ Antes de instalar el plugin necesitas:
 3. El escaneo iniciará automáticamente
 4. Los resultados aparecerán organizados por archivo y severidad
 
-![Resultados del escaneo en VS Code](screenshots/vscode_05_results.png)
 
 ---
 
@@ -214,27 +209,7 @@ Al hacer clic en una vulnerabilidad detectada, Snyk muestra:
 | **Medium** | 🟡 M | Riesgo moderado. Planificar remediación. |
 | **Low** | 🔵 L | Riesgo bajo. Monitorear. |
 
----
 
-## 📁 Estructura sugerida del repositorio
-
-```
-snyk-sast-guide/
-├── README.md
-└── screenshots/
-    ├── intellij_01_marketplace.png
-    ├── intellij_02_install.png
-    ├── intellij_03_auth.png
-    ├── intellij_04_settings.png
-    ├── intellij_05_results.png
-    ├── vscode_01_extensions.png
-    ├── vscode_02_install.png
-    ├── vscode_03_auth.png
-    ├── vscode_04_settings.png
-    └── vscode_05_results.png
-```
-
-> 💡 Agrega tus capturas de pantalla en la carpeta `screenshots/` con los nombres indicados para que las imágenes aparezcan correctamente en el README.
 
 ---
 
@@ -244,7 +219,3 @@ Este proyecto es de uso libre con fines académicos y educativos.
 
 ---
 
-<div align="center">
-  Elaborado como parte del proyecto <strong>BANK — Onboarding de Crédito Banca Móvil</strong><br/>
-  Flutter · Kotlin / Spring Boot · MySQL · Snyk
-</div>
