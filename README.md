@@ -1,183 +1,224 @@
-Guía de Instalación — Snyk Code (SAST)
-Show Image
-Show Image
-Show Image
-Show Image
-Guía paso a paso para instalar y configurar Snyk Code como herramienta SAST (Static Application Security Testing) en IntelliJ IDEA y Visual Studio Code / Cursor.
+# 🔐 Guía de Instalación — Snyk Code (SAST)
 
-📋 Tabla de contenidos
+![Snyk](https://img.shields.io/badge/Snyk-4C4A73?style=for-the-badge&logo=snyk&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![SAST](https://img.shields.io/badge/SAST-Static_Analysis-red?style=for-the-badge)
 
-¿Qué es Snyk Code?
-Requisitos previos
-Instalación en IntelliJ IDEA
-Instalación en Visual Studio Code / Cursor
-Primer escaneo
-Interpretación de resultados
-Severidades en Snyk
+Guía paso a paso para instalar y configurar **Snyk Code** como herramienta SAST (**Static Application Security Testing**) en IntelliJ IDEA y Visual Studio Code / Cursor.
 
+---
 
-🔍 ¿Qué es Snyk Code?
-Snyk Code es una herramienta de análisis estático de seguridad (SAST) que escanea el código fuente de tu proyecto en busca de vulnerabilidades sin necesidad de ejecutar la aplicación.
+## 📋 Tabla de contenidos
+
+- [¿Qué es Snyk Code?](#-qué-es-snyk-code)
+- [Requisitos previos](#-requisitos-previos)
+- [Instalación en IntelliJ IDEA](#-instalación-en-intellij-idea)
+- [Instalación en Visual Studio Code / Cursor](#-instalación-en-visual-studio-code--cursor)
+- [Primer escaneo](#-primer-escaneo)
+- [Interpretación de resultados](#-interpretación-de-resultados)
+- [Severidades en Snyk](#-severidades-en-snyk)
+
+---
+
+## 🔍 ¿Qué es Snyk Code?
+
+**Snyk Code** es una herramienta de análisis estático de seguridad (SAST) que escanea el código fuente de tu proyecto en busca de vulnerabilidades **sin necesidad de ejecutar la aplicación**.
+
 A diferencia de otras herramientas, Snyk Code:
 
-Analiza el flujo de datos entre funciones para detectar vulnerabilidades reales
-Integra el escaneo directamente en el IDE — resultados en tiempo real mientras escribes
-Cubre múltiples lenguajes: Kotlin, Java, Python, JavaScript, Dart, entre otros
-Clasifica los hallazgos por severidad: Critical, High, Medium, Low
-Mapea cada vulnerabilidad a su CWE y OWASP correspondiente
+- Analiza el flujo de datos entre funciones para detectar vulnerabilidades reales
+- Integra el escaneo directamente en el IDE — resultados en tiempo real mientras escribes
+- Cubre múltiples lenguajes: Kotlin, Java, Python, JavaScript, Dart, entre otros
+- Clasifica los hallazgos por severidad: **Critical**, **High**, **Medium**, **Low**
+- Mapea cada vulnerabilidad a su CWE y OWASP correspondiente
 
+---
 
-✅ Requisitos previos
+## ✅ Requisitos previos
+
 Antes de instalar el plugin necesitas:
 
-Cuenta Snyk — regístrate gratis en snyk.io
+1. **Cuenta Snyk** — regístrate gratis en [snyk.io](https://snyk.io)
+   > El plan gratuito incluye escaneo SAST ilimitado en proyectos personales.
 
-El plan gratuito incluye escaneo SAST ilimitado en proyectos personales.
+2. **Git instalado** — Snyk lo usa para identificar el proyecto
+   ```bash
+   git --version
+   ```
 
+3. **IDE compatible**
+   - IntelliJ IDEA 2021.1 o superior (Community o Ultimate)
+   - Visual Studio Code 1.60 o superior / Cursor
 
-Git instalado — Snyk lo usa para identificar el proyecto
+---
 
-bash   git --version
+## 🧠 Instalación en IntelliJ IDEA
 
-IDE compatible
+### Paso 1 — Abrir el Marketplace de plugins
 
-IntelliJ IDEA 2021.1 o superior (Community o Ultimate)
-Visual Studio Code 1.60 o superior / Cursor
+1. Abre IntelliJ IDEA
+2. Ve a **File → Settings** (Windows/Linux) o **IntelliJ IDEA → Preferences** (macOS)
+3. En el panel izquierdo selecciona **Plugins**
+4. Haz clic en la pestaña **Marketplace**
 
+![IntelliJ Settings > Plugins > Marketplace](screenshots/intellij_01_marketplace.png)
 
+---
 
+### Paso 2 — Buscar e instalar Snyk
 
-🧠 Instalación en IntelliJ IDEA
-Paso 1 — Abrir el Marketplace de plugins
+1. En la barra de búsqueda escribe `Snyk`
+2. Selecciona el plugin **Snyk Security** (publicado por Snyk Ltd.)
+3. Haz clic en **Install**
+4. Acepta los términos si se solicitan
+5. Haz clic en **Restart IDE** cuando finalice la instalación
 
-Abre IntelliJ IDEA
-Ve a File → Settings (Windows/Linux) o IntelliJ IDEA → Preferences (macOS)
-En el panel izquierdo selecciona Plugins
-Haz clic en la pestaña Marketplace
+![Búsqueda del plugin Snyk en Marketplace](screenshots/intellij_02_install.png)
 
-Show Image
+---
 
-Paso 2 — Buscar e instalar Snyk
+### Paso 3 — Autenticarse con Snyk
 
-En la barra de búsqueda escribe Snyk
-Selecciona el plugin Snyk Security (publicado por Snyk Ltd.)
-Haz clic en Install
-Acepta los términos si se solicitan
-Haz clic en Restart IDE cuando finalice la instalación
+1. Una vez reiniciado el IDE, aparecerá el panel de **Snyk** en la barra lateral izquierda
+2. Haz clic en el ícono de Snyk 🐝
+3. Selecciona **Connect IDE to Snyk**
+4. Se abrirá el navegador para autenticarte con tu cuenta de Snyk
+5. Inicia sesión con Google, GitHub o correo/contraseña
+6. Autoriza el acceso al IDE cuando el navegador lo solicite
+7. Regresa al IDE — deberías ver el mensaje **"Authenticated"**
 
-Show Image
+![Panel de autenticación Snyk en IntelliJ](screenshots/intellij_03_auth.png)
 
-Paso 3 — Autenticarse con Snyk
+---
 
-Una vez reiniciado el IDE, aparecerá el panel de Snyk en la barra lateral izquierda
-Haz clic en el ícono de Snyk 🐝
-Selecciona Connect IDE to Snyk
-Se abrirá el navegador para autenticarte con tu cuenta de Snyk
-Inicia sesión con Google, GitHub o correo/contraseña
-Autoriza el acceso al IDE cuando el navegador lo solicite
-Regresa al IDE — deberías ver el mensaje "Authenticated"
+### Paso 4 — Configurar el escaneo
 
-Show Image
+1. En el panel de Snyk haz clic en el ícono de ⚙️ **Settings**
+2. Asegúrate de que las siguientes opciones estén activas:
+   - ✅ **Snyk Code** (análisis SAST del código propio)
+   - ✅ **Snyk Open Source** (análisis de dependencias)
+3. Haz clic en **Apply**
 
-Paso 4 — Configurar el escaneo
+![Configuración del plugin Snyk](screenshots/intellij_04_settings.png)
 
-En el panel de Snyk haz clic en el ícono de ⚙️ Settings
-Asegúrate de que las siguientes opciones estén activas:
+---
 
-✅ Snyk Code (análisis SAST del código propio)
-✅ Snyk Open Source (análisis de dependencias)
+### Paso 5 — Ejecutar el primer escaneo
 
+1. Abre tu proyecto en IntelliJ
+2. En el panel de Snyk haz clic en **▶ Run Scan**
+3. Espera a que el escaneo finalice (puede tardar 30–60 segundos dependiendo del tamaño del proyecto)
+4. Los resultados aparecerán clasificados por severidad en el panel
 
-Haz clic en Apply
+![Resultados del escaneo en IntelliJ](screenshots/intellij_05_results.png)
 
-Show Image
+---
 
-Paso 5 — Ejecutar el primer escaneo
+## 💻 Instalación en Visual Studio Code / Cursor
 
-Abre tu proyecto en IntelliJ
-En el panel de Snyk haz clic en ▶ Run Scan
-Espera a que el escaneo finalice (puede tardar 30–60 segundos dependiendo del tamaño del proyecto)
-Los resultados aparecerán clasificados por severidad en el panel
+### Paso 1 — Abrir el panel de extensiones
 
-Show Image
+1. Abre VS Code o Cursor
+2. Haz clic en el ícono de **Extensiones** en la barra lateral izquierda (o presiona `Ctrl+Shift+X`)
 
-💻 Instalación en Visual Studio Code / Cursor
-Paso 1 — Abrir el panel de extensiones
+![Panel de extensiones VS Code](screenshots/vscode_01_extensions.png)
 
-Abre VS Code o Cursor
-Haz clic en el ícono de Extensiones en la barra lateral izquierda (o presiona Ctrl+Shift+X)
+---
 
-Show Image
+### Paso 2 — Buscar e instalar Snyk
 
-Paso 2 — Buscar e instalar Snyk
+1. En la barra de búsqueda escribe `Snyk Security`
+2. Selecciona la extensión **Snyk Security** (publicada por Snyk)
+3. Haz clic en **Install**
+4. Espera a que finalice la instalación — no requiere reinicio
 
-En la barra de búsqueda escribe Snyk Security
-Selecciona la extensión Snyk Security (publicada por Snyk)
-Haz clic en Install
-Espera a que finalice la instalación — no requiere reinicio
+![Instalación de Snyk en VS Code](screenshots/vscode_02_install.png)
 
-Show Image
+---
 
-Paso 3 — Autenticarse con Snyk
+### Paso 3 — Autenticarse con Snyk
 
-Aparecerá el ícono de Snyk 🐝 en la barra lateral izquierda
-Haz clic en él para abrir el panel
-Selecciona Connect VS Code to Snyk
-Se abrirá el navegador para autenticarte
-Inicia sesión con tu cuenta de Snyk
-Autoriza el acceso y regresa al IDE
-Verás el mensaje "Authenticated successfully"
+1. Aparecerá el ícono de Snyk 🐝 en la barra lateral izquierda
+2. Haz clic en él para abrir el panel
+3. Selecciona **Connect VS Code to Snyk**
+4. Se abrirá el navegador para autenticarte
+5. Inicia sesión con tu cuenta de Snyk
+6. Autoriza el acceso y regresa al IDE
+7. Verás el mensaje **"Authenticated successfully"**
 
-Show Image
+![Autenticación Snyk en VS Code](screenshots/vscode_03_auth.png)
 
-Paso 4 — Configurar el escaneo
+---
 
-Haz clic en el ícono de ⚙️ dentro del panel de Snyk
-Activa las siguientes opciones:
+### Paso 4 — Configurar el escaneo
 
-✅ Snyk Code Security issues — vulnerabilidades en código propio (SAST)
-✅ Open Source Security issues — vulnerabilidades en dependencias
+1. Haz clic en el ícono de ⚙️ dentro del panel de Snyk
+2. Activa las siguientes opciones:
+   - ✅ **Snyk Code Security issues** — vulnerabilidades en código propio (SAST)
+   - ✅ **Open Source Security issues** — vulnerabilidades en dependencias
+3. Guarda la configuración
 
+![Configuración Snyk en VS Code](screenshots/vscode_04_settings.png)
 
-Guarda la configuración
+---
 
-Show Image
+### Paso 5 — Ejecutar el escaneo
 
-Paso 5 — Ejecutar el escaneo
+1. Abre tu proyecto en VS Code / Cursor
+2. En el panel de Snyk haz clic en **▶ Run Scan** o el botón de refrescar 🔄
+3. El escaneo iniciará automáticamente
+4. Los resultados aparecerán organizados por archivo y severidad
 
-Abre tu proyecto en VS Code / Cursor
-En el panel de Snyk haz clic en ▶ Run Scan o el botón de refrescar 🔄
-El escaneo iniciará automáticamente
-Los resultados aparecerán organizados por archivo y severidad
+![Resultados del escaneo en VS Code](screenshots/vscode_05_results.png)
 
-Show Image
+---
 
-🚀 Primer escaneo
+## 🚀 Primer escaneo
+
 Una vez autenticado e instalado el plugin, Snyk escanea automáticamente cuando:
 
-Abres un proyecto por primera vez
-Guardas un archivo (Ctrl+S)
-Haces clic manualmente en Run Scan
+- Abres un proyecto por primera vez
+- Guardas un archivo (`Ctrl+S`)
+- Haces clic manualmente en **Run Scan**
 
 Los resultados se muestran en dos categorías:
-CategoríaDescripciónCode SecurityVulnerabilidades en tu código fuente (SAST)Open SourceVulnerabilidades en dependencias (pom.xml, build.gradle, pubspec.yaml)
 
-📊 Interpretación de resultados
+| Categoría | Descripción |
+|---|---|
+| **Code Security** | Vulnerabilidades en tu código fuente (SAST) |
+| **Open Source** | Vulnerabilidades en dependencias (`pom.xml`, `build.gradle`, `pubspec.yaml`) |
+
+---
+
+## 📊 Interpretación de resultados
+
 Al hacer clic en una vulnerabilidad detectada, Snyk muestra:
 
-Nombre del issue — ej. SQL Injection, Use of Password Hash With Insufficient Computational Effort
-CWE — clasificación estándar de la vulnerabilidad (ej. CWE-89, CWE-916)
-Severidad — Critical / High / Medium / Low
-Línea de código — ubicación exacta del problema
-Data Flow — trazabilidad del flujo de datos desde el origen hasta el punto vulnerable
-Fix Analysis — ejemplos de cómo otros proyectos han remediado el mismo problema
-Remediación sugerida — versión parcheada de la dependencia si aplica
+- **Nombre del issue** — ej. `SQL Injection`, `Use of Password Hash With Insufficient Computational Effort`
+- **CWE** — clasificación estándar de la vulnerabilidad (ej. CWE-89, CWE-916)
+- **Severidad** — Critical / High / Medium / Low
+- **Línea de código** — ubicación exacta del problema
+- **Data Flow** — trazabilidad del flujo de datos desde el origen hasta el punto vulnerable
+- **Fix Analysis** — ejemplos de cómo otros proyectos han remediado el mismo problema
+- **Remediación sugerida** — versión parcheada de la dependencia si aplica
 
+---
 
-🎯 Severidades en Snyk
-NivelÍconoDescripciónCritical🔴 CVulnerabilidad explotable de forma inmediata. Prioridad máxima.High🟠 HAlto riesgo. Debe remediarse antes de pasar a producción.Medium🟡 MRiesgo moderado. Planificar remediación.Low🔵 LRiesgo bajo. Monitorear.
+## 🎯 Severidades en Snyk
 
-📁 Estructura sugerida del repositorio
+| Nivel | Ícono | Descripción |
+|---|---|---|
+| **Critical** | 🔴 C | Vulnerabilidad explotable de forma inmediata. Prioridad máxima. |
+| **High** | 🟠 H | Alto riesgo. Debe remediarse antes de pasar a producción. |
+| **Medium** | 🟡 M | Riesgo moderado. Planificar remediación. |
+| **Low** | 🔵 L | Riesgo bajo. Monitorear. |
+
+---
+
+## 📁 Estructura sugerida del repositorio
+
+```
 snyk-sast-guide/
 ├── README.md
 └── screenshots/
@@ -191,12 +232,17 @@ snyk-sast-guide/
     ├── vscode_03_auth.png
     ├── vscode_04_settings.png
     └── vscode_05_results.png
+```
 
-💡 Agrega tus capturas de pantalla en la carpeta screenshots/ con los nombres indicados para que las imágenes aparezcan correctamente en el README.
+> 💡 Agrega tus capturas de pantalla en la carpeta `screenshots/` con los nombres indicados para que las imágenes aparezcan correctamente en el README.
 
+---
 
-📄 Licencia
+## 📄 Licencia
+
 Este proyecto es de uso libre con fines académicos y educativos.
+
+---
 
 <div align="center">
   Elaborado como parte del proyecto <strong>BANK — Onboarding de Crédito Banca Móvil</strong><br/>
